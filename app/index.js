@@ -1,3 +1,4 @@
+const env = process.env;
 global.production = env.NODE_ENV == 'production';
 const isDev = !global.production;
 
@@ -8,8 +9,6 @@ if (global.production) {
 const express = require('express');
 const logger = require('morgan');
 const path = require('path');
-const env = process.env;
-
 
 function createApp() {
   const app = express();
