@@ -1,10 +1,15 @@
+global.production = env.NODE_ENV == 'production';
+const isDev = !global.production;
+
+if (global.production) {
+  require ('newrelic');
+}
+
 const express = require('express');
 const logger = require('morgan');
 const path = require('path');
 const env = process.env;
 
-global.production = env.NODE_ENV == 'production';
-const isDev = !global.production;
 
 function createApp() {
   const app = express();
@@ -26,8 +31,6 @@ function createApp() {
 
   if (isDev) {
     app.locals.pretty = true;
-  } else {
-    require ('newrelic');
   }
 
   app.use(logger(global.production ? 'combined' : 'dev'));
