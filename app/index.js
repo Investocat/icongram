@@ -55,7 +55,8 @@ function createApp() {
     console.log(
       '[ERROR]',
       new Date().toISOString(),
-      err.stack || err.message
+      err.status == 404 ? err.message : err.stack,
+      req.originalUrl
     );
 
     if (isDev) {
