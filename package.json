@@ -22,6 +22,7 @@
     "font-awesome-svg-png": "^1.2.2",
     "mdi-svg": "^2.0.46",
     "morgan": "^1.8.2",
+    "newrelic": "^2.2.1",
     "octicons": "^6.0.1",
     "pug": "^2.0.0-rc.4",
     "simple-icons": "^1.0.2",

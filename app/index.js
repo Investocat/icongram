@@ -26,6 +26,8 @@ function createApp() {
 
   if (isDev) {
     app.locals.pretty = true;
+  } else {
+    require ('newrelic');
   }
 
   app.use(logger(global.production ? 'combined' : 'dev'));
