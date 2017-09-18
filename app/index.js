@@ -32,7 +32,7 @@ function createApp() {
     app.locals.pretty = true;
   }
 
-  app.use(logger(global.production ? 'combined' : 'dev'));
+  app.use(logger(global.production ? 'method=:method path=":url" host=:req[host] request_id=:req[x-request-id] cf_ray=:req[cf-ray] fwd=:fwd status=:status bytes=:res[content-length]' : 'dev'));
 
   app.get('/', function(request, reply) {
     reply.render('home', {
