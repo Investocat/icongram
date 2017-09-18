@@ -38,7 +38,6 @@ router.get('/json', function(req, reply) {
 router.get('/:icon.svg', function(req, reply, next) {
   const ico = icons.find(i => i.name == req.params.icon);
 
-  console.log(ico);
   if (!ico) return reply.status(404).send('Icon Not Found');
 
   const rawIcon = ico.icon;
