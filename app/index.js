@@ -3,16 +3,16 @@ global.production = env.NODE_ENV == 'production';
 const isDev = !global.production;
 
 if (global.production) {
-  require ('newrelic');
+  require('newrelic');
 }
 
 const express = require('express');
 const logger = require('morgan');
 const path = require('path');
 
-logger.token('fwd', function (req) {
-  return (req.get('x-forwarded-for') || '').replace(/\s/g, '')
-})
+logger.token('fwd', function(req) {
+  return (req.get('x-forwarded-for') || '').replace(/\s/g, '');
+});
 
 function createApp() {
   const app = express();
@@ -36,7 +36,13 @@ function createApp() {
     app.locals.pretty = true;
   }
 
-  app.use(logger(global.production ? 'method=:method path=":url" host=:req[host] request_id=:req[x-request-id] cf_ray=:req[cf-ray] fwd=:fwd status=:status bytes=:res[content-length]' : 'dev'));
+  app.use(
+    logger(
+      global.production
+        ? ':method ":url" :status host=:req[host] referrer=":referrer" cf_ray=:req[cf-ray] fwd=:fwd bytes=:res[content-length] :response-time ms request_id=:req[x-request-id] agent=":user-agent"'
+        : 'dev'
+    )
+  );
 
   app.get('/', function(request, reply) {
     reply.render('home', {
