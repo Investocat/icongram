@@ -13,7 +13,7 @@ Object.keys(simpleIcons).forEach(i => {
 });
 
 router.get('/', function(req, reply) {
-  reply.locals.originalUrl = `${req.app.loçcals.host}${req.originalUrl}`;
+  reply.locals.originalUrl = `${req.app.locals.host}${req.originalUrl}`;
   reply.locals.source = 'https://github.com/simple-icons/simple-icons';
   reply.render('iconlist', {
     title: 'Simple Icons',
