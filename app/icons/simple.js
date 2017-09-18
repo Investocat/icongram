@@ -13,7 +13,7 @@ Object.keys(simpleIcons).forEach(i => {
 });
 
 router.get('/', function(req, reply) {
-  reply.locals.originalUrl = `${req.app.locals.host}${req.originalUrl}`;
+  reply.locals.originalUrl = `${req.app.loçcals.host}${req.originalUrl}`;
   reply.locals.source = 'https://github.com/simple-icons/simple-icons';
   reply.render('iconlist', {
     title: 'Simple Icons',
@@ -42,9 +42,9 @@ router.get('/:icon.svg', function(req, reply, next) {
 
   const colored = typeof req.query.colored != 'undefined';
 
-  req.query.color = colored ? objIcon.hex : req.query.color;
-
   if (!objIcon) return reply.status(404).send('Icon Not Found');
+
+  req.query.color = colored ? objIcon.hex : req.query.color;
 
   makeIcon(objIcon.svg, req.query)
     .then(res => reply.type('image/svg+xml').send(res))
