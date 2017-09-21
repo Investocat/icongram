@@ -16,6 +16,7 @@
     "start": "NODE_ENV=production node server.js"
   },
   "dependencies": {
+    "cookie-parser": "^1.4.3",
     "entypo": "^2.0.0",
     "express": "^4.15.4",
     "feather-icons": "^3.2.2",
@@ -27,6 +28,7 @@
     "pug": "^2.0.0-rc.4",
     "simple-icons": "^1.0.2",
     "throng": "^4.0.0",
+    "universal-analytics": "^0.4.15",
     "xml2js": "^0.4.19"
   },
   "devDependencies": {

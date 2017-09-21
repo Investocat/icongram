@@ -6,7 +6,7 @@ const path = require('path');
 const makeIcon = require('../utils').makeIcon;
 
 router.get('/', function(req, reply) {
-  reply.locals.source = 'https://octicons.github.com'
+  reply.locals.source = 'https://octicons.github.com';
   reply.render('iconlist', {
     title: 'Octicons',
     icons: Object.keys(icons).map(name => {
@@ -37,7 +37,18 @@ router.get('/:icon.svg', function(req, reply, next) {
   const rawIcon = fs.readFileSync(ico, 'utf8');
 
   makeIcon(rawIcon, req.query)
-    .then(res => reply.type('image/svg+xml').send(res))
+    .then(res => {
+      req.visitor.event(
+        {
+          ec: 'icon',
+          ea: req.baseUrl.substr(1),
+          el: req.params.icon,
+          dp: req.headers.referer
+        },
+        err => (err ? console.error(err) : null)
+      );
+      reply.type('image/svg+xml').send(res);
+    })
     .catch(err => {
       console.error(err);
       next(err);

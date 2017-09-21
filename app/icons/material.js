@@ -4,12 +4,15 @@ const fs = require('fs');
 const makeIcon = require('../utils').makeIcon;
 
 icons.forEach(icon => {
-  const ico = fs.readFileSync(require.resolve(`mdi-svg/svg/${icon.name}.svg`), 'utf8');
+  const ico = fs.readFileSync(
+    require.resolve(`mdi-svg/svg/${icon.name}.svg`),
+    'utf8'
+  );
   icon.icon = ico;
-})
+});
 
 router.get('/', function(req, reply) {
-  reply.locals.source = 'https://materialdesignicons.com'
+  reply.locals.source = 'https://materialdesignicons.com';
   reply.render('iconlist', { title: 'Material Design', icons: icons });
 });
 
@@ -25,7 +28,18 @@ router.get('/:icon.svg', function(req, reply, next) {
   const rawIcon = fs.readFileSync(ico, 'utf8');
 
   makeIcon(rawIcon, req.query)
-    .then(res => reply.type('image/svg+xml').send(res))
+    .then(res => {
+      req.visitor.event(
+        {
+          ec: 'icon',
+          ea: req.baseUrl.substr(1),
+          el: req.params.icon,
+          ev: req.headers.referer
+        },
+        err => (err ? console.error(err) : null)
+      );
+      reply.type('image/svg+xml').send(res);
+    })
     .catch(err => {
       console.error(err);
       next(err);

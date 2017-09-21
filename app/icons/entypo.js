@@ -27,7 +27,7 @@ utils
   .catch(e => console.log(e));
 
 router.get('/', function(req, reply) {
-  reply.locals.source = 'http://www.entypo.com/'
+  reply.locals.source = 'http://www.entypo.com/';
   reply.render('iconlist', { title: 'Entypo', icons });
 });
 
@@ -44,7 +44,18 @@ router.get('/:icon.svg', function(req, reply, next) {
 
   utils
     .makeIcon(rawIcon, req.query)
-    .then(res => reply.type('image/svg+xml').send(res))
+    .then(res => {
+      req.visitor.event(
+        {
+          ec: 'icon',
+          ea: req.baseUrl.substr(1),
+          el: req.params.icon,
+          dp: req.headers.referer
+        },
+        err => (err ? console.error(err) : null)
+      );
+      reply.type('image/svg+xml').send(res);
+    })
     .catch(err => {
       console.error(err);
       next(err);

@@ -47,7 +47,18 @@ router.get('/:icon.svg', function(req, reply, next) {
   req.query.color = colored ? objIcon.hex : req.query.color;
 
   makeIcon(objIcon.svg, req.query)
-    .then(res => reply.type('image/svg+xml').send(res))
+    .then(res => {
+      req.visitor.event(
+        {
+          ec: 'icon',
+          ea: req.baseUrl.substr(1),
+          el: req.params.icon,
+          dp: req.headers.referer
+        },
+        err => (err ? console.error(err) : null)
+      );
+      reply.type('image/svg+xml').send(res);
+    })
     .catch(err => {
       console.error(err);
       next(err);

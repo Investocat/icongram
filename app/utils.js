@@ -9,20 +9,12 @@ const { promisify } = require('util');
 
 exports.builder = builder;
 
-exports.xml2js = promisify(parseString)
-// function(xml) {
-//   return new Promise((done, fail) => {
-//     parseString(xml, function(err, obj) {
-//       if (err) fail(err)
-//       else done(obj)
-//     })
-//   })
-// }
+exports.xml2js = promisify(parseString);
 
 exports.makeIcon = function(rawIcon, params) {
   const DEFAULT_SIZE = 32;
   const color = /^[0-9A-F]{6}$/i.test(params.color) ? '#' + params.color : '';
-  const size = params.size && parseInt(params.size);
+  const size = (params.size && parseInt(params.size)) || DEFAULT_SIZE;
 
   return new Promise((done, fail) => {
     parseString(rawIcon, function(err, objSvg) {
@@ -30,8 +22,8 @@ exports.makeIcon = function(rawIcon, params) {
         return fail(err);
       }
 
-      objSvg.svg.$.width = params.size > 0 ? params.size : DEFAULT_SIZE;
-      objSvg.svg.$.height = params.size > 0 ? params.size : DEFAULT_SIZE;
+      objSvg.svg.$.width = size;
+      objSvg.svg.$.height = size;
 
       if (objSvg.svg.$.fill != 'none') {
         objSvg.svg.$.fill = color || objSvg.svg.$.fill || '';
