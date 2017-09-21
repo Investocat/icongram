@@ -29,7 +29,7 @@ router.get('/:icon.svg', function(req, reply, next) {
           ec: 'icon',
           ea: req.baseUrl.substr(1),
           el: req.params.icon,
-          dp: req.headers.referer
+          ev: req.headers.referer
         },
         err => (err ? console.error(err) : null)
       );
