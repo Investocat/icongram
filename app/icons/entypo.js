@@ -45,15 +45,17 @@ router.get('/:icon.svg', function(req, reply, next) {
   utils
     .makeIcon(rawIcon, req.query)
     .then(res => {
-      req.visitor.event(
-        {
-          ec: 'icon',
-          ea: req.baseUrl.substr(1),
-          el: req.params.icon,
-          ev: req.headers.referer
-        },
-        err => (err ? console.error(err) : null)
-      );
+      const referer = req.headers.referer || '';
+      if (referer.indexOf(req.get('host')) < 0) {
+        req.visitor.event(
+          {
+            ec: req.baseUrl.substr(1),
+            ea: req.params.icon,
+            el: referer
+          },
+          err => (err ? console.error(err) : null)
+        );
+      }
       reply.type('image/svg+xml').send(res);
     })
     .catch(err => {
