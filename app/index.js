@@ -25,9 +25,11 @@ function createApp() {
   app.use(cookieParser())
 
   app.use((req, res, n) => {
+    app.locals.ENV = env.NODE_ENV;
     app.locals.host = `${req.protocol}://${req.get('host')}`;
     app.locals.originalUrl = `${app.locals.host}${req.path}`;
     app.locals.GA_ID = GA_ID;
+    req.ip = req.headers['cf-connecting-ip'] || req.headers['x-forwarded-for'] || req.connection.remoteAddress;
     n();
   });
 
@@ -48,7 +50,7 @@ function createApp() {
     )
   );
 
-  app.use(ua.middleware(GA_ID, { cookieName: '_ga' }));
+  app.use(ua.middleware(GA_ID, { cookieName: '_ga', debug: isDev }));
 
   app.get('/', function(request, reply) {
     reply.render('home', {

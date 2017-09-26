@@ -30,7 +30,8 @@ router.get('/:icon.svg', function(req, reply, next) {
           {
             ec: req.baseUrl.substr(1),
             ea: req.params.icon,
-            el: referer
+            el: referer,
+            uip: req.ip
           },
           err => (err ? console.error(err) : null)
         );
