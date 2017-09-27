@@ -18,7 +18,17 @@ logger.token('fwd', function(req) {
 });
 
 function createApp() {
+  console.log('[ENV]', env.NODE_ENV);
+
   const app = express();
+  if (isDev) {
+    app.locals.pretty = true;
+  }
+
+  app.disable('x-powered-by');
+  app.enable('trust proxy');
+  app.set('views', path.join(__dirname, 'views'));
+  app.set('view engine', 'pug');
 
   app.locals.modules = path.join(__dirname, '..', 'node_modules');
 
@@ -32,15 +42,6 @@ function createApp() {
     req.ip = req.headers['cf-connecting-ip'] || req.headers['x-forwarded-for'] || req.connection.remoteAddress;
     n();
   });
-
-  console.log('[ENV]', env.NODE_ENV);
-  if (isDev) {
-    app.locals.pretty = true;
-  }
-  app.set('views', path.join(__dirname, 'views'));
-  app.set('view engine', 'pug');
-  app.disable('x-powered-by');
-  app.enable('trust proxy');
 
   app.use(
     logger(
