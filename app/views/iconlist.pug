@@ -1,25 +1,23 @@
-extends layouts/default.pug
+extends layouts/default
 
 block content
   .container
+    h1= title
+      small #{icons.length} icons
+    p
+      a.button.outline(href=source, target='_blank') ⚓️&nbsp; Source
     br
-    .is-text-center
-      a.brand(href='/')
-        img.logo(src='/logo.svg', width='100')
-      include nav
-      h1= title
-        small #{icons.length} icons
-      p
-        a(href=source, target='_blank') Source
-      br
+    h5 Usage: 
       code
         != originalUrl.replace(/\/$/, "") + '/{icon}.svg?[options]'
     br
     br
     div.row.icons
       each icon, key in icons
+        - var name = icon.name || key
         div.col-3.icon
-          kbd= icon.name || key
+          a(href=`${originalUrl}/${name}.svg`, target='_blank', rel='nofollow')
+            kbd= name
           if icon
             != '&nbsp;'
             if icon.path
@@ -27,4 +25,7 @@ block content
             else if icon.icon
               != icon.icon
             else
-              img(src='./' + icon.name + '.svg')
+              img(src='./' + name + '.svg')
+    p
+      br
+      small All icon libraries are under their respective licenses. All brand icons are trademarks of their respective owners.

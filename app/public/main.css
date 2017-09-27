@@ -1,11 +1,47 @@
 :root {
   --primary-color: #505e69;
 }
-.hero {
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  margin: 6rem;
+
+body {
+  min-width: 100%;
+}
+
+body > .row {
+  margin: 0;
+}
+
+body > .row > * {
+  margin-bottom: 0;
+}
+
+.button {
+  -webkit-transition: opacity 0.3s;
+  -o-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+.logo-holder {
+  display: -ms-flex;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+
+a.logo-holder:hover {
+  opacity: 1;
+}
+
+.logo {
+  margin-right: 1rem;
+}
+
+.wordmark > * {
+  margin: 0;
+}
+
+.wordmark h1 {
+  font-size: 1.6em;
 }
 
 h1 {
@@ -18,25 +54,35 @@ h1 small {
 }
 
 .main-nav {
-  margin-bottom: 2rem;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  padding: 3rem var(--grid-gutter);
+  text-align: left;
 }
 
-.libs {
-  list-style-type: none;
-  margin-bottom: 10rem;
+.main-nav small {
+  text-transform: uppercase;
+  margin-top: 1rem;
 }
 
-.libs li {
-  display: inline-block;
-  padding: 1rem;
+.main-nav a,
+.credits {
+  line-height: 2;
 }
 
 .icons > * {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
   flex-direction: row-reverse;
-  display: -webkit-flex;
   display: -ms-flex;
+  display: -webkit-box;
   display: flex;
+  -webkit-box-pack: end;
   justify-content: flex-end;
+  -webkit-box-align: center;
   align-items: center;
 }
 
@@ -47,8 +93,14 @@ h1 small {
   height: 24px;
 }
 
+.icon a {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+}
+
 .icon kbd {
-  font-size: 0.7em;
+  font-size: 0.8em;
   margin-left: 5px;
   color: var(--primary-color);
 }
@@ -59,6 +111,26 @@ pre {
 
 #footer {
   margin-top: 3rem;
-  padding: 5rem 0;
-  background-color: rgb(234, 237, 242);
+  font-size: 1.4rem;
+}
+
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 300px;
+  background-color: rgb(242, 243, 245);
+  padding: var(--grid-gutter);
+  overflow: auto;
+}
+
+#main {
+  width: calc(100% - 300px);
+  margin-left: 300px;
+}
+
+#main > .container {
+  padding-top: var(--grid-gutter);
+  padding-bottom: var(--grid-gutter);
 }

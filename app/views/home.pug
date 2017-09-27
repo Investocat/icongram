@@ -1,15 +1,11 @@
-extends layouts/default.pug
+extends layouts/default
 
 block content
   #home.container
-    .hero.is-center
-      img.logo(src='/logo.svg')
-      h1 icongram
-      h6 Icons on the fly
-    include nav
+    h1 Get Started
+    blockquote(style='margin-left:0') With icongram you can easily use icons from popular icon sets on the fly. — <a href="https://tympanus.net/codrops/collective/collective-351/">Codrops</a>
     br
     .row
-      .col-2
       .col-8
         h4 How to use:
         pre
@@ -67,8 +63,3 @@ block content
         img(src=originalUrl + 'simple/youtube.svg?colored')
         |&nbsp;
         img(src=originalUrl + 'simple/spotify.svg?color=000000')
-        br
-        br
-        p.is-center
-          a.button.primary.is-text-uppercase.outline(href=`https://twitter.com/intent/tweet?url=${host}&text=icongram - Icons on the fly&via=geekGogari&hashtags=web,icons,svg`, target="_blank",) Give a shout-out
-          a.button.primary.is-text-uppercase(href="https://paypal.me/jgog/10", target="_blank") Donate
