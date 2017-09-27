@@ -36,8 +36,8 @@ http://icongr.am/fontawesome/heart.svg?color=DD0A0D
 
 ## Sponsor
 
-<a href="https://www.iconfinder.com?utm_campaign=Icon%20set%20promotion&amp;utm_medium=partner&amp;utm_source=Icongram&amp;utm_content=Github" target="_blank"><img src="https://icongr.am/if_text_black_182504.svg" height="24"></a>
-<p><small>This project is sponsored by Iconfinder. Visit <a href="https://www.iconfinder.com?utm_campaign=Icon%20set%20promotion&amp;utm_medium=partner&amp;utm_source=Icongram&amp;utm_content=Github" target="_blank">iconfinder.com</a> for more icons.</small></p>
+<a href="https://www.iconfinder.com?utm_campaign=Icongram&utm_medium=partner&utm_source=Icongram&utm_content=Github" target="_blank"><img src="https://icongr.am/if_text_black_182504.svg" height="24"></a>
+<p><small>This project is sponsored by Iconfinder. Visit <a href="https://www.iconfinder.com?utm_campaign=Icongram&utm_medium=partner&utm_source=Icongram&utm_content=Github" target="_blank">iconfinder.com</a> for more icons.</small></p>
 
 ## License
 
