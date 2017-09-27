@@ -49,7 +49,7 @@ router.get('/:icon.svg', function(req, reply, next) {
   makeIcon(objIcon.svg, req.query)
     .then(res => {
       const referer = req.headers.referer || '';
-      if (referer.indexOf(req.get('host')) < 0) {
+      if (referer.indexOf(req.get('host')) < 0 && global.production) {
         req.visitor.event(
           {
             ec: req.baseUrl.substr(1),
