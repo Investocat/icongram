@@ -36,7 +36,7 @@ function createApp() {
 
   app.use((req, res, n) => {
     app.locals.ENV = env.NODE_ENV;
-    app.locals.host = `${req.protocol}://${req.get('host')}`;
+    app.locals.host = `${isDev ? req.protocol : 'https'}://${req.get('host')}`;
     app.locals.originalUrl = `${app.locals.host}${req.path}`;
     app.locals.GA_ID = GA_ID;
     req.ip = req.headers['cf-connecting-ip'] || req.headers['x-forwarded-for'] || req.connection.remoteAddress;
