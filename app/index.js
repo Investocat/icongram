@@ -18,27 +18,30 @@ logger.token('fwd', function(req) {
 });
 
 function createApp() {
+  console.log('[ENV]', env.NODE_ENV);
+
   const app = express();
+  if (isDev) {
+    app.locals.pretty = true;
+  }
+
+  app.disable('x-powered-by');
+  app.enable('trust proxy');
+  app.set('views', path.join(__dirname, 'views'));
+  app.set('view engine', 'pug');
 
   app.locals.modules = path.join(__dirname, '..', 'node_modules');
 
   app.use(cookieParser())
 
   app.use((req, res, n) => {
-    app.locals.host = `${req.protocol}://${req.get('host')}`;
+    app.locals.ENV = env.NODE_ENV;
+    app.locals.host = `${isDev ? req.protocol : 'https'}://${req.get('host')}`;
     app.locals.originalUrl = `${app.locals.host}${req.path}`;
     app.locals.GA_ID = GA_ID;
+    req.ip = req.headers['cf-connecting-ip'] || req.headers['x-forwarded-for'] || req.connection.remoteAddress;
     n();
   });
-
-  console.log('[ENV]', env.NODE_ENV);
-  if (isDev) {
-    app.locals.pretty = true;
-  }
-  app.set('views', path.join(__dirname, 'views'));
-  app.set('view engine', 'pug');
-  app.disable('x-powered-by');
-  app.enable('trust proxy');
 
   app.use(
     logger(
@@ -48,7 +51,7 @@ function createApp() {
     )
   );
 
-  app.use(ua.middleware(GA_ID, { cookieName: '_ga' }));
+  app.use(ua.middleware(GA_ID, { cookieName: '_ga', debug: isDev }));
 
   app.get('/', function(request, reply) {
     reply.render('home', {

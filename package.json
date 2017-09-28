@@ -27,7 +27,7 @@
     "newrelic": "^2.2.1",
     "octicons": "^6.0.1",
     "pug": "^2.0.0-rc.4",
-    "simple-icons": "^1.0.2",
+    "simple-icons": "^1.2.7",
     "throng": "^4.0.0",
     "universal-analytics": "^0.4.15",
     "xml2js": "^0.4.19"
