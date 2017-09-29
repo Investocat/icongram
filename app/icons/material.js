@@ -2,6 +2,7 @@ const router = require('express').Router();
 const icons = require('mdi-svg/meta.json');
 const fs = require('fs');
 const makeIcon = require('../utils').makeIcon;
+const count = icons.length;
 
 icons.forEach(icon => {
   const ico = fs.readFileSync(
@@ -10,6 +11,8 @@ icons.forEach(icon => {
   );
   icon.icon = ico;
 });
+
+console.log('Loaded %d Material Design Icons', count);
 
 router.get('/', function(req, reply) {
   reply.locals.source = 'https://materialdesignicons.com';
@@ -51,3 +54,4 @@ router.get('/:icon.svg', function(req, reply, next) {
 });
 
 module.exports = router;
+module.exports.count = () => count;

@@ -4,6 +4,10 @@ const simpleIcons = require('simple-icons');
 
 let icons = {};
 
+const count = Object.keys(simpleIcons).length;
+
+console.log('Loaded %d Simple Icons', count);
+
 Object.keys(simpleIcons).forEach(i => {
   const filename = i
     .toLowerCase()
@@ -15,6 +19,7 @@ Object.keys(simpleIcons).forEach(i => {
 router.get('/', function(req, reply) {
   reply.locals.originalUrl = `${req.app.locals.host}${req.originalUrl}`;
   reply.locals.source = 'https://github.com/simple-icons/simple-icons';
+  reply.locals.additionalOptions = '&colored=true'
   reply.render('iconlist', {
     title: 'Simple Icons',
     icons: Object.keys(icons).map(name => {
@@ -70,3 +75,4 @@ router.get('/:icon.svg', function(req, reply, next) {
 });
 
 module.exports = router;
+module.exports.count = () => count;

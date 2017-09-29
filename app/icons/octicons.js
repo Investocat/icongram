@@ -5,6 +5,10 @@ const fs = require('fs');
 const path = require('path');
 const makeIcon = require('../utils').makeIcon;
 
+const count = Object.keys(icons).length;
+
+console.log('Loaded %d Octicons', count);
+
 router.get('/', function(req, reply) {
   reply.locals.source = 'https://octicons.github.com';
   reply.render('iconlist', {
@@ -60,3 +64,4 @@ router.get('/:icon.svg', function(req, reply, next) {
 });
 
 module.exports = router;
+module.exports.count = () => count;

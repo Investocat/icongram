@@ -2,6 +2,7 @@ const router = require('express').Router();
 const entypo = require('entypo');
 const utils = require('../utils');
 let icons = [];
+let count = 0;
 
 utils
   .xml2js(entypo())
@@ -23,6 +24,9 @@ utils
         })
       };
     });
+  }).then(() => {
+    count = icons.length;
+    console.log('Loaded %d Entypo Icons', count);
   })
   .catch(e => console.log(e));
 
@@ -67,3 +71,4 @@ router.get('/:icon.svg', function(req, reply, next) {
 });
 
 module.exports = router;
+module.exports.count = () => count;

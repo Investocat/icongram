@@ -2,8 +2,11 @@ const express = require('express');
 const router = express.Router();
 const fIcons = require('feather-icons');
 const icons = fIcons.icons;
-
 const makeIcon = require('../utils').makeIcon;
+
+const count = Object.keys(icons).length;
+
+console.log('Loaded %d Feather Icons', count);
 
 router.get('/', function(req, reply) {
   reply.locals.source = 'https://feathericons.com';
@@ -58,3 +61,4 @@ router.get('/:icon.svg', function(req, reply, next) {
 });
 
 module.exports = router;
+module.exports.count = () => count;

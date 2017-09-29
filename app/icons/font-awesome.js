@@ -2,6 +2,7 @@ const router = require('express').Router();
 const fs = require('fs');
 const makeIcon = require('../utils').makeIcon;
 let icons = [];
+let count = 0;
 
 router.get('/', function(req, reply) {
   reply.locals.source = 'http://fontawesome.io';
@@ -64,7 +65,8 @@ function parseIconListFromLess(lines) {
       icon: ico.split('\n')[1]
     });
   }
-  console.log('Done reading from font-awesome');
+  count = result.length;
+  console.log('Loaded %d Font Awesome Icons', count);
   return result;
 }
 
@@ -74,3 +76,4 @@ fs.readFile(LESS_FILE, (err, data) => {
 });
 
 module.exports = router;
+module.exports.count = () => count;

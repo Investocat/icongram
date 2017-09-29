@@ -107,5 +107,5 @@ router.get('/:icon.svg', function(req, reply, next) {
     });
 });
 
-exports.count = count;
 module.exports = router;
+module.exports.count = () => count;

@@ -10,7 +10,7 @@ if (global.production) {
 const express = require('express');
 const logger = require('morgan');
 const path = require('path');
-const ua = require("universal-analytics");
+const ua = require('universal-analytics');
 const cookieParser = require('cookie-parser');
 
 logger.token('fwd', function(req) {
@@ -21,6 +21,31 @@ function createApp() {
   console.log('[ENV]', env.NODE_ENV);
 
   const app = express();
+
+  const clarity = require('./icons/clarity');
+  const entypo = require('./icons/entypo');
+  const feather = require('./icons/feather');
+  const fontawesome = require('./icons/font-awesome');
+  const material = require('./icons/material');
+  const octicons = require('./icons/octicons');
+  const simple = require('./icons/simple');
+
+  let total = 0;
+
+  setTimeout(function () {
+    total =
+      clarity.count() +
+      entypo.count() +
+      feather.count() +
+      fontawesome.count() +
+      material.count() +
+      octicons.count() +
+      simple.count();
+
+      console.log('Total Icons: ', total);
+      app.locals.total = total;
+  }, 3000);
+
   if (isDev) {
     app.locals.pretty = true;
   }
@@ -32,22 +57,25 @@ function createApp() {
 
   app.locals.modules = path.join(__dirname, '..', 'node_modules');
 
-  app.use(cookieParser())
+  app.use(cookieParser());
 
   app.use((req, res, n) => {
     app.locals.ENV = env.NODE_ENV;
     app.locals.host = `${isDev ? req.protocol : 'https'}://${req.get('host')}`;
     app.locals.originalUrl = `${app.locals.host}${req.path}`;
     app.locals.GA_ID = GA_ID;
-    req.ip = req.headers['cf-connecting-ip'] || req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    req.ip =
+      req.headers['cf-connecting-ip'] ||
+      req.headers['x-forwarded-for'] ||
+      req.connection.remoteAddress;
     n();
   });
 
   app.use(
     logger(
       global.production
-      ? ':method ":url" :status referrer=":referrer" cf_ray=:req[cf-ray] fwd=:fwd bytes=:res[content-length] :response-time ms request_id=:req[x-request-id] agent=":user-agent"'
-      : 'dev'
+        ? ':method ":url" :status referrer=":referrer" cf_ray=:req[cf-ray] fwd=:fwd bytes=:res[content-length] :response-time ms request_id=:req[x-request-id] agent=":user-agent"'
+        : 'dev'
     )
   );
 
@@ -60,13 +88,13 @@ function createApp() {
     });
   });
 
-  app.use('/clarity', require('./icons/clarity'));
-  app.use('/entypo', require('./icons/entypo'));
-  app.use('/feather', require('./icons/feather'));
-  app.use('/fontawesome', require('./icons/font-awesome'));
-  app.use('/material', require('./icons/material'));
-  app.use('/octicons', require('./icons/octicons'));
-  app.use('/simple', require('./icons/simple'));
+  app.use('/clarity', clarity);
+  app.use('/entypo', entypo);
+  app.use('/feather', feather);
+  app.use('/fontawesome', fontawesome);
+  app.use('/material', material);
+  app.use('/octicons', octicons);
+  app.use('/simple', simple);
 
   app.use(express.static('app/public'));
 
