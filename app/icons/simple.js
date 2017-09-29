@@ -19,7 +19,7 @@ Object.keys(simpleIcons).forEach(i => {
 router.get('/', function(req, reply) {
   reply.locals.originalUrl = `${req.app.locals.host}${req.originalUrl}`;
   reply.locals.source = 'https://github.com/simple-icons/simple-icons';
-  reply.locals.additionalOptions = '&colored=true'
+  reply.locals.additionalOptions = '&colored=true';
   reply.render('iconlist', {
     title: 'Simple Icons',
     icons: Object.keys(icons).map(name => {
@@ -61,7 +61,8 @@ router.get('/:icon.svg', function(req, reply, next) {
             ec: req.baseUrl.substr(1),
             ea: req.params.icon,
             el: referer,
-            uip: req.ip
+            uip: req.ip,
+            dr: referer
           },
           err => (err ? console.error(err) : null)
         );

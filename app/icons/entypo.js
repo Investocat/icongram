@@ -24,7 +24,8 @@ utils
         })
       };
     });
-  }).then(() => {
+  })
+  .then(() => {
     count = icons.length;
     console.log('Loaded %d Entypo Icons', count);
   })
@@ -57,7 +58,8 @@ router.get('/:icon.svg', function(req, reply, next) {
             ec: req.baseUrl.substr(1),
             ea: req.params.icon,
             el: referer,
-            uip: req.ip
+            uip: req.ip,
+            dr: referer
           },
           err => (err ? console.error(err) : null)
         );
