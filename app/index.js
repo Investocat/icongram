@@ -22,28 +22,31 @@ function createApp() {
 
   const app = express();
 
-  const clarity = require('./icons/clarity');
-  const entypo = require('./icons/entypo');
-  const feather = require('./icons/feather');
-  const fontawesome = require('./icons/font-awesome');
-  const material = require('./icons/material');
-  const octicons = require('./icons/octicons');
-  const simple = require('./icons/simple');
+  const iconLibs = {
+    clarity: require('./icons/clarity'),
+    entypo: require('./icons/entypo'),
+    feather: require('./icons/feather'),
+    fontawesome: require('./icons/font-awesome'),
+    material: require('./icons/material'),
+    octicons: require('./icons/octicons'),
+    simple: require('./icons/simple')
+  };
 
   let total = 0;
+  let iconCounts = {};
 
-  setTimeout(function () {
-    total =
-      clarity.count() +
-      entypo.count() +
-      feather.count() +
-      fontawesome.count() +
-      material.count() +
-      octicons.count() +
-      simple.count();
+  Object.keys(iconLibs).forEach(lib => (iconCounts[lib] = 0));
 
-      console.log('Total Icons: ', total);
-      app.locals.total = total;
+  setTimeout(function() {
+    Object.keys(iconLibs).forEach(lib => {
+      iconCounts[lib] = iconLibs[lib].count()
+      total += iconLibs[lib].count()
+    });
+
+    console.log('Total Icons: ', total);
+
+    app.locals.iconCounts = iconCounts;
+    app.locals.total = total;
   }, 3000);
 
   if (isDev) {
@@ -88,13 +91,13 @@ function createApp() {
     });
   });
 
-  app.use('/clarity', clarity);
-  app.use('/entypo', entypo);
-  app.use('/feather', feather);
-  app.use('/fontawesome', fontawesome);
-  app.use('/material', material);
-  app.use('/octicons', octicons);
-  app.use('/simple', simple);
+  app.use('/clarity', iconLibs['clarity']);
+  app.use('/entypo', iconLibs['entypo']);
+  app.use('/feather', iconLibs['feather']);
+  app.use('/fontawesome', iconLibs['fontawesome']);
+  app.use('/material', iconLibs['material']);
+  app.use('/octicons', iconLibs['octicons']);
+  app.use('/simple', iconLibs['simple']);
 
   app.use(express.static('app/public'));
 

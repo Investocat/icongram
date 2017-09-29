@@ -3,26 +3,26 @@
 doctype html
 html(lang='en')
   head
-    title #{title} - Icongram
+    title #{title} - Icongram, serving you #{total} icons on the fly
     link(rel='shortcut icon', href='/favicon.png')
     link(rel='icon', type='image/png', href=`${domain}/favicon.png`, sizes='32x32')
     link(rel='apple-touch-icon', href=`${domain}/apple-touch-icon.png`)
     link(rel='stylesheet', href='https://unpkg.com/chota')
-    style
-      include ../../public/main.css
     link(rel='canonical', href=`${domain}`)
     meta(property='og:url', content=`${domain}`)
     meta(property='og:type', content='website')
     meta(property='og:title', content='Icongram: icons on the fly 🚀')
     meta(property='og:image', content=`${domain}/icongram-banner.png`)
-    meta(property='og:description', content='Icongram serves you icons from your favourite icon library on the fly 🚀.')
+    meta(property='og:description', content=`Icongram serves you ${total} icons from your favourite icon library on the fly 🚀.`)
     meta(name='twitter:card', content='summary_large_image')
     meta(name='twitter:site', content='@geekGogari')
     meta(name='twitter:creator', content='@geekGogari')
-    meta(name='twitter:title', content='Icongram: icons on the fly 🚀')
+    meta(name='twitter:title', content=`Icongram: ${total} icons on the fly 🚀`)
     meta(name='twitter:image', content=`${domain}/icongram-banner.png`)
-    meta(name='twitter:description', content='Icongram serves you icons from your favourite icon library on the fly 🚀..')
+    meta(name='twitter:description', content=`Icongram serves you ${total} icons from your favourite icon library on the fly 🚀..`)
     meta(name='theme-color', content='#00d1b2')
+    style
+      include ../../public/main.css
 
   body
     #sidebar
@@ -33,10 +33,10 @@ html(lang='en')
           </svg>
           .wordmark
             h1 icongram
-            h6 #{total} Icons on the fly 🚀
+            h6 Icons on the fly 🚀
         include ../nav
         p.is-center
-          a.button.primary.is-text-uppercase.outline(href=`https://twitter.com/intent/tweet?url=${host}&text=Icongram - Icons on the fly 🚀&via=geekGogari&hashtags=web,icons,svg`, target='_blank',onclick=`ga('send', 'event', 'navigation', 'click', 'shout-out');`) #[small Give a shout-out 📣]
+          a.button.primary.is-text-uppercase.outline(href=`https://twitter.com/intent/tweet?url=${host}&text=Icongram%20-%20Icons%20on%20the%20fly 🚀&via=geekGogari&hashtags=web,icons,svg`, target='_blank',onclick=`ga('send', 'event', 'navigation', 'click', 'shout-out');`) #[small Give a shout-out 📣]
         #footer
           br
           p Icongram is currently hosted on Heroku and served over Cloudflare, so the uptime should be good enough &amp; reliable 💯
@@ -44,7 +44,7 @@ html(lang='en')
           br
           div.is-text-center
             a(href=sponsor_link, target='_blank', onclick=`ga('send', 'event', 'navigation', 'click', 'sponsor-link');`)
-              img(src='/if_text_black_182504.svg', height='24')
+              img(src='/if_text_black_182504.svg', height='24', alt='Iconfinder')
             p
               small
                 | This project is sponsored by Iconfinder. <br> Visit 
