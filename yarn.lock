@@ -420,6 +420,10 @@ circular-json@^0.3.1:
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/circular-json/-/circular-json-0.3.3.tgz#815c99ea84f6809529d2f45791bdf82711352d66"
 
+clarity-icons@^0.10.6:
+  version "0.10.6"
+  resolved "https://registry.yarnpkg.com/clarity-icons/-/clarity-icons-0.10.6.tgz#cc4087e6048aef5c119a8af5078c59aaa1c340d4"
+
 clean-css@^3.3.0:
   version "3.4.28"
   resolved "https://registry.yarnpkg.com/clean-css/-/clean-css-3.4.28.tgz#bf1945e82fc808f55695e6ddeaec01400efd03ff"

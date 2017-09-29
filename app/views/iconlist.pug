@@ -9,14 +9,14 @@ block content
     br
     h5 Usage: 
       code
-        != originalUrl.replace(/\/$/, "") + '/{icon}.svg?[options]'
+        != originalUrl.replace(/\/$/, "") + `/{icon}.svg?size={number}&color={hex}${additionalOptions ? additionalOptions : ''}`
     br
     br
     div.row.icons
       each icon, key in icons
         - var name = icon.name || key
         div.col-3.icon
-          a(href=`${originalUrl}/${name}.svg`, target='_blank', rel='nofollow')
+          a(href=`${originalUrl.replace(/\/$/, "")}/${name}.svg`, target='_blank', rel='nofollow')
             kbd= name
           if icon
             != '&nbsp;'

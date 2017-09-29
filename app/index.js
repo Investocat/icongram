@@ -60,6 +60,7 @@ function createApp() {
     });
   });
 
+  app.use('/clarity', require('./icons/clarity'));
   app.use('/entypo', require('./icons/entypo'));
   app.use('/feather', require('./icons/feather'));
   app.use('/fontawesome', require('./icons/font-awesome'));

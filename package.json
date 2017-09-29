@@ -16,6 +16,7 @@
     "start": "NODE_ENV=production node server.js"
   },
   "dependencies": {
+    "clarity-icons": "^0.10.6",
     "cookie-parser": "^1.4.3",
     "entypo": "^2.0.0",
     "express": "^4.15.4",
