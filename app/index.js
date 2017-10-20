@@ -24,6 +24,7 @@ function createApp() {
 
   const iconLibs = {
     clarity: require('./icons/clarity'),
+    devicon: require('./icons/devicon'),
     entypo: require('./icons/entypo'),
     feather: require('./icons/feather'),
     fontawesome: require('./icons/font-awesome'),
@@ -91,13 +92,7 @@ function createApp() {
     });
   });
 
-  app.use('/clarity', iconLibs['clarity']);
-  app.use('/entypo', iconLibs['entypo']);
-  app.use('/feather', iconLibs['feather']);
-  app.use('/fontawesome', iconLibs['fontawesome']);
-  app.use('/material', iconLibs['material']);
-  app.use('/octicons', iconLibs['octicons']);
-  app.use('/simple', iconLibs['simple']);
+  Object.keys(iconLibs).forEach(lib => app.use(`/${lib}`, iconLibs[lib]));
 
   app.use(express.static('app/public'));
 

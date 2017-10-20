@@ -665,6 +665,10 @@ destroy@~1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/destroy/-/destroy-1.0.4.tgz#978857442c44749e4206613e37946205826abd80"
 
+devicon@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/devicon/-/devicon-2.0.0.tgz#6374a28c18561abe15720af01dca5ea0953cd51b"
+
 doctrine@1.5.0:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/doctrine/-/doctrine-1.5.0.tgz#379dce730f6166f76cefa4e6707a159b02c5a6fa"

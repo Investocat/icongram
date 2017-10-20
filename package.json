@@ -18,6 +18,7 @@
   "dependencies": {
     "clarity-icons": "^0.10.10",
     "cookie-parser": "^1.4.3",
+    "devicon": "^2.0.0",
     "entypo": "^2.0.0",
     "express": "^4.15.4",
     "feather-icons": "^3.3.0",
