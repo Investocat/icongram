@@ -16,11 +16,11 @@
     "start": "NODE_ENV=production node server.js"
   },
   "dependencies": {
-    "clarity-icons": "^0.10.6",
+    "clarity-icons": "^0.10.10",
     "cookie-parser": "^1.4.3",
     "entypo": "^2.0.0",
     "express": "^4.15.4",
-    "feather-icons": "^3.2.2",
+    "feather-icons": "^3.3.0",
     "font-awesome-svg-png": "^1.2.2",
     "mdi-svg": "^2.0.46",
     "morgan": "^1.8.2",
