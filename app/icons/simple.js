@@ -19,7 +19,7 @@ Object.keys(simpleIcons).forEach(i => {
 router.get('/', function(req, reply) {
   reply.locals.originalUrl = `${req.app.locals.host}${req.originalUrl}`;
   reply.locals.source = 'https://github.com/simple-icons/simple-icons';
-  reply.locals.additionalOptions = '&colored=true';
+  reply.locals.additionalOptions = '&color={hex}&colored=true';
   reply.render('iconlist', {
     title: 'Simple Icons',
     icons: Object.keys(icons).map(name => {

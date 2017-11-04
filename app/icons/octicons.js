@@ -11,6 +11,7 @@ console.log('Loaded %d Octicons', count);
 
 router.get('/', function(req, reply) {
   reply.locals.source = 'https://octicons.github.com';
+  reply.locals.additionalOptions = '&color={hex}';
   reply.render('iconlist', {
     title: 'Octicons',
     icons: Object.keys(icons).map(name => {

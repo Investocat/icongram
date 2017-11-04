@@ -6,6 +6,7 @@ let count = 0;
 
 router.get('/', function(req, reply) {
   reply.locals.source = 'http://fontawesome.io';
+  reply.locals.additionalOptions = '&color={hex}';
   reply.render('iconlist', { title: 'Font Awesome', icons: icons });
 });
 

@@ -33,6 +33,7 @@ utils
 
 router.get('/', function(req, reply) {
   reply.locals.source = 'http://www.entypo.com/';
+  reply.locals.additionalOptions = '&color={hex}';
   reply.render('iconlist', { title: 'Entypo', icons });
 });
 

@@ -16,6 +16,7 @@ console.log('Loaded %d Material Design Icons', count);
 
 router.get('/', function(req, reply) {
   reply.locals.source = 'https://materialdesignicons.com';
+  reply.locals.additionalOptions = '&color={hex}';
   reply.render('iconlist', { title: 'Material Design', icons: icons });
 });
 

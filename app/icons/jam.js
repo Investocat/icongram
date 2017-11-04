@@ -9,7 +9,7 @@ console.log('Loaded %d Jam Icons', count);
 router.get('/', function(req, reply) {
   reply.locals.originalUrl = `${req.app.locals.host}${req.originalUrl}`;
   reply.locals.source = 'https://github.com/michaelampr/jam';
-  reply.locals.additionalOptions = '&colored=true';
+  reply.locals.additionalOptions = '&color={hex}';
   reply.render('iconlist', {
     title: 'Jam Icons',
     icons: Object.keys(icons).map(name => {

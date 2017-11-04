@@ -53,6 +53,7 @@ console.log('Loaded %d Clarity Icons', count);
 router.get('/', function(req, reply) {
   reply.locals.originalUrl = `${req.app.locals.host}${req.originalUrl}`;
   reply.locals.source = 'https://vmware.github.io/clarity/icons';
+  reply.locals.additionalOptions = '&color={hex}';
   reply.render('iconlist', {
     title: 'Clarity Icons',
     icons: Object.keys(icons).map(name => {

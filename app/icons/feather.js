@@ -10,6 +10,7 @@ console.log('Loaded %d Feather Icons', count);
 
 router.get('/', function(req, reply) {
   reply.locals.source = 'https://feathericons.com';
+  reply.locals.additionalOptions = '&color={hex}';
   reply.render('iconlist', {
     title: 'Feather Icons',
     icons: Object.keys(icons).map(name => {
