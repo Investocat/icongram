@@ -24,6 +24,7 @@ exports.makeIcon = function(rawIcon, params) {
 
       objSvg.svg.$.width = size;
       objSvg.svg.$.height = size;
+      delete objSvg.svg.style;
 
       if (objSvg.svg.$.fill != 'none') {
         objSvg.svg.$.fill = color || objSvg.svg.$.fill || '';

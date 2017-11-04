@@ -28,6 +28,7 @@ function createApp() {
     entypo: require('./icons/entypo'),
     feather: require('./icons/feather'),
     fontawesome: require('./icons/font-awesome'),
+    jam: require('./icons/jam'),
     material: require('./icons/material'),
     octicons: require('./icons/octicons'),
     simple: require('./icons/simple')
