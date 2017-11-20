@@ -16,27 +16,25 @@ router.get('/', function(req, reply) {
     icons: Object.keys(icons).map(name => {
       return {
         name,
-        icon: fIcons.toSvg(name)
+        icon: fIcons.icons[name].toSvg()
       };
     })
   });
 });
 
 router.get('/json', function(req, reply) {
-  reply.json(
-    Object.keys(icons).map(name => {
-      return {
-        name,
-        icon: fIcons.toSvg(name)
-      };
-    })
-  );
+  reply.json(Object.keys(icons).map(name => {
+    return {
+      name,
+      icon: fIcons.icons[name].toSvg()
+    };
+  }))
 });
 
 router.get('/:icon.svg', function(req, reply, next) {
   const isIcon = fIcons.icons[req.params.icon];
   if (!isIcon) return reply.status(404).send('Icon Not Found');
-  const rawIcon = fIcons.toSvg(req.params.icon);
+  const rawIcon = fIcons.icons[req.params.icon].toSvg()
 
   makeIcon(rawIcon, req.query)
     .then(res => {
