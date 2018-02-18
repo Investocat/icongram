@@ -16,36 +16,36 @@
     "start": "NODE_ENV=production node server.js"
   },
   "dependencies": {
-    "clarity-icons": "^0.10.14",
+    "clarity-icons": "^0.10.26",
     "cookie-parser": "^1.4.3",
     "devicon": "^2.0.0",
     "entypo": "^2.1.0",
-    "express": "^4.15.4",
+    "express": "^4.16.2",
     "feather-icons": "^4.0.1",
     "font-awesome-svg-png": "^1.2.2",
     "jam-icons": "^1.0.72",
     "mdi-svg": "^2.0.46",
-    "morgan": "^1.8.2",
-    "newrelic": "^2.2.1",
+    "morgan": "^1.9.0",
+    "newrelic": "^2.7.1",
     "octicons": "^7.0.1",
     "pug": "^2.0.0-rc.4",
     "simple-icons": "^1.2.10",
     "throng": "^4.0.0",
-    "universal-analytics": "^0.4.15",
+    "universal-analytics": "^0.4.16",
     "xml2js": "^0.4.19"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",
-    "eslint": "^3.13.1",
+    "eslint": "^4.18.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-html": "^2.0.3",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-node": "^4.2.2",
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-standard": "^3.0.1",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.15.0"
   },
   "engines": {
-    "node": "8.x.x"
+    "node": "*"
   }
 }
