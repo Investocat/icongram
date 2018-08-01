@@ -8,9 +8,9 @@
 
 <br/>
 
-![](https://img.shields.io/uptimerobot/ratio/m780776626-e3f9a6610736a03c4bc3bcef.svg)
+[![](https://img.shields.io/uptimerobot/ratio/m780776626-e3f9a6610736a03c4bc3bcef.svg)](https://stats.uptimerobot.com/3wjjAhg5z)
 ![](https://img.shields.io/travis/com/jenil/icongram/master.svg)
-![](https://img.shields.io/github/issues/jenil/icongram.svg)
+[![](https://img.shields.io/github/issues/jenil/icongram.svg)](https://github.com/jenil/icongram/issues)
 ![](https://img.shields.io/github/license/jenil/icongram.svg)
 
 
