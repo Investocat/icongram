@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Icons on the fly",
   "author": "Jenil Gogari <i@jgog.in>",
+  "homepage": "https://icongr.am",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -13,7 +14,8 @@
   },
   "scripts": {
     "dev": "nodemon server.js",
-    "start": "NODE_ENV=production node server.js"
+    "start": "NODE_ENV=production node server.js",
+    "test": ""
   },
   "dependencies": {
     "clarity-icons": "^0.10.26",
@@ -47,5 +49,18 @@
   },
   "engines": {
     "node": "*"
-  }
+  },
+  "keywords": [
+    "icons",
+    "fontawesome",
+    "material",
+    "svg"
+  ],
+  "contributors": [
+    {
+      "name": "Jenil Gogari",
+      "email": "i@jgog.in",
+      "url": "https://jgog.in/"
+    }
+  ]
 }
