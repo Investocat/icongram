@@ -48,7 +48,7 @@
     "nodemon": "^1.15.0"
   },
   "engines": {
-    "node": "*"
+    "node": "> 8.0.0"
   },
   "keywords": [
     "icons",
