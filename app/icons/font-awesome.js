@@ -71,10 +71,11 @@ function parseIconListFromLess(lines) {
   return result;
 }
 
-fs.readFile(LESS_FILE, (err, data) => {
+try {
+  icons = parseIconListFromLess(fs.readFileSync(LESS_FILE));
+} catch (err) {
   if (err) throw err;
-  icons = parseIconListFromLess(data);
-});
+}
 
 module.exports = router;
 module.exports.count = () => count;
