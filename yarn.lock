@@ -2048,9 +2048,9 @@ isstream@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
 
-jam-icons@^1.0.72:
-  version "1.0.72"
-  resolved "https://registry.yarnpkg.com/jam-icons/-/jam-icons-1.0.72.tgz#f758499972945eacf4dc12c1da8ba7210531be57"
+jam-icons@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/jam-icons/-/jam-icons-2.0.0.tgz#7036006f867d21d1ab9ad83743eb9b41cafa70a0"
 
 js-stringify@^1.0.1:
   version "1.0.2"

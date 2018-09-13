@@ -25,7 +25,7 @@
     "express": "^4.16.2",
     "feather-icons": "^4.7.3",
     "font-awesome-svg-png": "^1.2.2",
-    "jam-icons": "^1.0.72",
+    "jam-icons": "^2.0.0",
     "mdi-svg": "^2.0.46",
     "morgan": "^1.9.0",
     "newrelic": "^2.7.1",
