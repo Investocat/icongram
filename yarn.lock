@@ -80,6 +80,10 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
+"@mdi/svg@^2.7.94":
+  version "2.7.94"
+  resolved "https://registry.yarnpkg.com/@mdi/svg/-/svg-2.7.94.tgz#5f2b03c363b10f7e4cf8c8a5fdc81cbd838bf44b"
+
 "@newrelic/native-metrics@^2.1.0":
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/@newrelic/native-metrics/-/native-metrics-2.2.0.tgz#c2fe499ce7fef9e8b2a79e9da04069c7be2020b6"
@@ -2321,10 +2325,6 @@ map-visit@^1.0.0:
   resolved "https://registry.yarnpkg.com/map-visit/-/map-visit-1.0.0.tgz#ecdca8f13144e660f1b5bd41f12f3479d98dfb8f"
   dependencies:
     object-visit "^1.0.0"
-
-mdi-svg@^2.0.46:
-  version "2.1.19"
-  resolved "https://registry.yarnpkg.com/mdi-svg/-/mdi-svg-2.1.19.tgz#e4bd226a89594ff4903727b45c196e355fde6a88"
 
 media-typer@0.3.0:
   version "0.3.0"
