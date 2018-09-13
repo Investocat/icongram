@@ -80,6 +80,10 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
+"@clr/icons@^0.13.0":
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/@clr/icons/-/icons-0.13.0.tgz#df6c548d026d33086a93c98f0b1247fc7ba5f0f7"
+
 "@mdi/svg@^2.7.94":
   version "2.7.94"
   resolved "https://registry.yarnpkg.com/@mdi/svg/-/svg-2.7.94.tgz#5f2b03c363b10f7e4cf8c8a5fdc81cbd838bf44b"
@@ -582,10 +586,6 @@ circular-json@^0.3.1:
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/circular-json/-/circular-json-0.3.3.tgz#815c99ea84f6809529d2f45791bdf82711352d66"
 
-clarity-icons@^0.10.26:
-  version "0.10.26"
-  resolved "https://registry.yarnpkg.com/clarity-icons/-/clarity-icons-0.10.26.tgz#8610103051c5f4bc827d1d012a6cf4b198e7b9f5"
-
 class-utils@^0.3.5:
   version "0.3.6"
   resolved "https://registry.yarnpkg.com/class-utils/-/class-utils-0.3.6.tgz#f93369ae8b9a7ce02fd41faad0ca83033190c463"
@@ -900,9 +900,9 @@ detect-libc@^1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/detect-libc/-/detect-libc-1.0.3.tgz#fa137c4bd698edf55cd5cd02ac559f91a4c4ba9b"
 
-devicon@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/devicon/-/devicon-2.0.0.tgz#6374a28c18561abe15720af01dca5ea0953cd51b"
+devicon-2.2@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/devicon-2.2/-/devicon-2.2-2.2.0.tgz#d639f8626ece73dab20bb267a83cf3d6b65c1720"
 
 doctrine@1.5.0:
   version "1.5.0"

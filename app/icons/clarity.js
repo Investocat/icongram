@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const utils = require('../utils');
 const makeIcon = utils.makeIcon;
-const ClarityIcons = require('clarity-icons/shapes/all-shapes');
+const ClarityIcons = require('@clr/icons/shapes/all-shapes');
 
 const count = Object.keys(ClarityIcons.AllShapes).length;
 
