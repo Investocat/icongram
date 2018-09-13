@@ -3350,9 +3350,9 @@ signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
 
-simple-icons@^1.2.10:
-  version "1.3.3"
-  resolved "https://registry.yarnpkg.com/simple-icons/-/simple-icons-1.3.3.tgz#298dea2b36f3f3aad90e03cdffe85472072a495d"
+simple-icons@^1.9.0:
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/simple-icons/-/simple-icons-1.9.0.tgz#02585045b26d5df15f5d0e46bc569fe9a5bacadf"
 
 slice-ansi@1.0.0:
   version "1.0.0"
