@@ -41,15 +41,15 @@ function createApp() {
 
   setTimeout(function() {
     Object.keys(iconLibs).forEach(lib => {
-      iconCounts[lib] = iconLibs[lib].count()
-      total += iconLibs[lib].count()
+      iconCounts[lib] = iconLibs[lib].count();
+      total += iconLibs[lib].count();
     });
 
     console.log('Total Icons: ', total);
 
     app.locals.iconCounts = iconCounts;
     app.locals.total = total;
-  }, 3000);
+  }, 0);
 
   if (isDev) {
     app.locals.pretty = true;
@@ -84,7 +84,12 @@ function createApp() {
     )
   );
 
-  app.use(ua.middleware(GA_ID, { cookieName: '_ga', debug: isDev }));
+  if (global.production)
+    app.use(ua.middleware(GA_ID, { cookieName: '_ga', debug: isDev }));
+
+  app.get('/health', function(request, reply) {
+    reply.send('ok');
+  });
 
   app.get('/', function(request, reply) {
     reply.render('home', {

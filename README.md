@@ -8,6 +8,14 @@
 
 <br/>
 
+[![](https://img.shields.io/uptimerobot/ratio/m780776626-e3f9a6610736a03c4bc3bcef.svg)](https://stats.uptimerobot.com/3wjjAhg5z)
+![](https://travis-ci.org/jenil/icongram.svg?branch=master)
+[![](https://img.shields.io/github/issues/jenil/icongram.svg)](https://github.com/jenil/icongram/issues)
+![](https://img.shields.io/github/license/jenil/icongram.svg)
+
+
+<br/>
+
 ## Why should you use it?
 
 Because sometimes all you want is just a freaking icon without the need of fonts, sprites or any thing _fancy_.
