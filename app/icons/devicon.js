@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const devicons = require('devicon/devicon.json');
+const devicons = require('devicon-2.2/devicon.json');
 const fs = require('fs');
 const makeIcon = require('../utils').makeIcon;
 
@@ -12,7 +12,7 @@ devicons.forEach(icon => {
     let ico = {}
     ico['name'] = `${icon.name}-${type}`
     ico['icon'] = fs.readFileSync(
-      require.resolve(`devicon/icons/${icon.name}/${ico['name']}.svg`),
+      require.resolve(`devicon-2.2/icons/${icon.name}/${ico['name']}.svg`),
       'utf8'
     );
     icons.push(ico)
